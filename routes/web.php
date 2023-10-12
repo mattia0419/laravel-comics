@@ -14,5 +14,25 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+
+    return view('layouts.app');
 });
+Route::get('/', function () {
+    $links = ['CHARACTERS',
+            'COMICS',
+            'MOVIES',
+            'TV',
+            'GAMES',
+            'COLLECTIBLES',
+            'VIDEOS',
+            'FANS',
+            'NEWS',
+            'SHOP'
+];
+    return view('layouts.header', compact('links'));
+});
+ Route::get('/', function () {
+    $books = config('db.books');
+    
+      return view('layouts.main', compact('books'));
+  });
